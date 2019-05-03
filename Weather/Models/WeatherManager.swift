@@ -100,11 +100,5 @@ class WeatherManager {
   }
 
   
-  
-  private func parse(data: Data) {
-    
-    
-  }
-  
-  
+
 }

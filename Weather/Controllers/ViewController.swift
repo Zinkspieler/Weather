@@ -37,13 +37,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
   
   var forecasts: WeatherForecastResult?
   
+  // MARK: - Object LifeCycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
-   
   }
   
   override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     if let city = city {
       let location = CLLocation(latitude: city.latitude, longitude: city.longitude)
       getWeather(location: location)
@@ -54,7 +55,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
   }
 
   @IBAction func temperatureButtonPressed(_ sender: Any) {
-    getLocation()
+    viewDidAppear(true)
   }
   
   func updateUI() {
@@ -80,7 +81,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
   
   /// Gets a UIImage from the bundle for a given weather id number
   /// - parameter id: The weather id number representing a range of weather conditions
-  /// - returns: a UIImage appropriate for the weather condition, or nil if none is found
+  /// - returns: a UIImage appropriate for the weather condition
   private func backgroundImage(forId id: Int) -> UIImage? {
     switch id {
     case 200...232:
@@ -94,6 +95,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
+  /// Gets the users location
   func getLocation() {
     let authStatus = CLLocationManager.authorizationStatus()
     switch authStatus {
@@ -111,12 +113,16 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         lastLocationError = nil
         startLocationManager()
       }
-      
+    @unknown default:
+      print("CLLocationManager.authorizationStatus has been updated with a new case.")
     }
     
   }
   
   // MARK:- Networking
+  
+  /// Makes a request for weather results and updates the UI
+  /// - parameter location: The location to use for the weather request
   func getWeather(location: CLLocation) {
     let lat = String(format: "%.2f", location.coordinate.latitude)
     let lon = String(format: "%.2f", location.coordinate.longitude)
@@ -175,7 +181,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
   
-  
+  /// Shows an alert if the user has disabled location services.
+  ///
+  /// Gives the user the option to directly open settings to enable location services.
   func showLocationDeniedAlert() {
     let title = "Location Services Disabled"
     let message = "To get current location, enable location services for this app in Settings"
@@ -230,11 +238,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
       return
     }
     
-//    var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
-//    if let location = location {
-//      distance = newLocation.distance(from: location)
-//    }
-    
     if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
       location = newLocation
       lastLocationError = nil
@@ -252,6 +255,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 
 
 }
+
+// MARK: - TableView delegate and data source
 
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
   
@@ -279,8 +284,10 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     return cell
   }
   
-  
-  func iconImage(forId id: Int) -> UIImage? {
+  /// Gets a UIImage from the bundle for a given weather id number
+  /// - parameter id: The weather id number representing a range of weather conditions
+  /// - returns: a UIImage appropriate for the weather condition
+  private func iconImage(forId id: Int) -> UIImage? {
     let imageName: String = {
       switch id {
       case 200..<300: return "thunder"
@@ -297,10 +304,9 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     return UIImage(named: imageName)
   }
   
-  
-  
-  
 }
+
+// MARK: - Select City Delegate
 
 extension WeatherViewController: SelectCityDelegate {
   

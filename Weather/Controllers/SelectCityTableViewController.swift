@@ -8,6 +8,9 @@
 
 import UIKit
 
+/// Delegate for the `SelectCityTableViewController`
+///
+/// Can be told which `City` to get the weather for, or to use the current location
 protocol SelectCityDelegate {
   
   func didSelect(city: City)
@@ -15,6 +18,7 @@ protocol SelectCityDelegate {
   
 }
 
+/// A view controller that allows the user to select a `City`
 class SelectCityTableViewController: UITableViewController {
 
   var cities: [City] = []
@@ -42,12 +46,14 @@ class SelectCityTableViewController: UITableViewController {
     return 2
   }
   
+  
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    // create empty header for each section for visual separation
     return " "
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
+    // section 0 has only 1 cell: Current Location, section 1 lists cities
     return section == 0 ? 1 : cities.count
   }
 
@@ -73,9 +79,11 @@ class SelectCityTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
     
     if indexPath.section == 1 {
+      // the user selected a City, inform the delegate to use that City
       let city = cities[indexPath.row]
       delegate?.didSelect(city: city)
     } else {
+      // no City selected, inform the delegate to use current location
       delegate?.useCurrentLocation()
     }
     
@@ -91,8 +99,9 @@ class SelectCityTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    // swipe to delete cells
     guard editingStyle == .delete else { return }
-    
+    // update model, update view, save
     cities.remove(at: indexPath.row)
     tableView.deleteRows(at: [indexPath], with: .automatic)
     saveCities()
@@ -101,9 +110,10 @@ class SelectCityTableViewController: UITableViewController {
   // MARK: - Navigation
 
   @IBAction func unwindToSelectCityController(segue: UIStoryboardSegue) {
+    // check if there is a new city to add
     guard segue.identifier == propertyKeys.saveUnwindSegue, let controller = segue.source as? AddCityTableViewController,
       let newCity = controller.city else { return }
-    
+    // update model, update view, save
     cities.append(newCity)
     tableView.reloadData()
     saveCities()

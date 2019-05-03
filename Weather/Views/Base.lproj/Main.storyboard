@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Hwf-lK-SxY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ForecastCell" id="Hwf-lK-SxY">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hwf-lK-SxY" id="pd1-TF-ue1">
@@ -209,7 +209,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGm-WW-zmg">
                                                             <rect key="frame" x="357" y="11.5" width="21" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.89885800100000002" green="0.9597512466" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.89885800100000002" green="0.9597512466" blue="1" alpha="0.74521083047945202" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mP-u1-5Sn">
@@ -228,6 +228,7 @@
                                                         <constraint firstItem="Qxd-mJ-feg" firstAttribute="centerX" secondItem="LNx-Ij-ytf" secondAttribute="centerX" id="hoy-CL-11j"/>
                                                         <constraint firstItem="a7p-H9-Yra" firstAttribute="centerX" secondItem="LNx-Ij-ytf" secondAttribute="centerX" id="ieI-8j-eqI"/>
                                                         <constraint firstAttribute="trailing" secondItem="6mP-u1-5Sn" secondAttribute="trailing" constant="65" id="lgh-5B-WPY"/>
+                                                        <constraint firstItem="UGm-WW-zmg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6mP-u1-5Sn" secondAttribute="trailing" constant="8" id="pWi-kQ-eaj"/>
                                                         <constraint firstItem="a7p-H9-Yra" firstAttribute="centerY" secondItem="LNx-Ij-ytf" secondAttribute="centerY" id="v2y-kC-p6T"/>
                                                         <constraint firstItem="Qxd-mJ-feg" firstAttribute="centerY" secondItem="LNx-Ij-ytf" secondAttribute="centerY" id="vSt-yj-aPG"/>
                                                         <constraint firstItem="Qxd-mJ-feg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="a7p-H9-Yra" secondAttribute="trailing" priority="750" constant="20" id="vpH-eq-ITb"/>
@@ -263,7 +264,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-9G-bak">
                                         <rect key="frame" x="361" y="595" width="31" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.89885800100000002" green="0.9597512466" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.89885800100000002" green="0.9597512466" blue="1" alpha="0.74595997431506844" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewA-5B-X5M">

@@ -70,22 +70,46 @@
 		028626E9216AA6130033422C /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				02C4766B227C823300904DD0 /* Controllers */,
+				02C4766A227C822E00904DD0 /* Views */,
+				02C47669227C822100904DD0 /* Models */,
 				028626EA216AA6130033422C /* AppDelegate.swift */,
-				0243C45F21F4F8D200BCEFB8 /* ForecastCell.swift */,
-				028626EE216AA6130033422C /* Main.storyboard */,
-				02A7FC5C227B3D1C00D20D67 /* AddCityTableViewController.swift */,
-				024380942278F119008AAC66 /* SelectCityTableViewController.swift */,
-				024380962278F1DF008AAC66 /* City.swift */,
-				028626EC216AA6130033422C /* ViewController.swift */,
-				0201BBB021EE5ED700E5657F /* WeatherManager.swift */,
-				026F15D621F391F30051A6A3 /* WeatherForecast.swift */,
-				026CDD0821EBA93000F7ED9F /* WeatherResult.swift */,
 				02A7FC5E227B43B500D20D67 /* PropertyKeys.swift */,
 				028626F1216AA6140033422C /* Assets.xcassets */,
 				028626F3216AA6140033422C /* LaunchScreen.storyboard */,
 				028626F6216AA6140033422C /* Info.plist */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		02C47669227C822100904DD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0201BBB021EE5ED700E5657F /* WeatherManager.swift */,
+				026F15D621F391F30051A6A3 /* WeatherForecast.swift */,
+				026CDD0821EBA93000F7ED9F /* WeatherResult.swift */,
+				024380962278F1DF008AAC66 /* City.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		02C4766A227C822E00904DD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				028626EE216AA6130033422C /* Main.storyboard */,
+				0243C45F21F4F8D200BCEFB8 /* ForecastCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02C4766B227C823300904DD0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				028626EC216AA6130033422C /* ViewController.swift */,
+				02A7FC5C227B3D1C00D20D67 /* AddCityTableViewController.swift */,
+				024380942278F119008AAC66 /* SelectCityTableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +144,7 @@
 				TargetAttributes = {
 					028626E6216AA6130033422C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -328,7 +353,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathanielcox.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -346,7 +371,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathanielcox.Weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
