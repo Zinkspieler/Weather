@@ -47,9 +47,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSf-ok-IAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wxB-DB-h5j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1923" y="13"/>
+            <point key="canvasLocation" x="1083" y="734"/>
         </scene>
-        <!--Item-->
+        <!--Add City-->
         <scene sceneID="ZKv-ci-Adr">
             <objects>
                 <viewController id="T2G-bE-DTJ" customClass="AddCityViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="nsU-wX-alY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="FD9-j0-w6S"/>
-                    <navigationItem key="navigationItem" id="pIX-xh-AYR"/>
+                    <navigationItem key="navigationItem" title="Add City" id="pIX-xh-AYR"/>
                     <connections>
                         <outlet property="mapView" destination="qLF-ki-jZz" id="87w-AN-a4x"/>
                         <segue destination="LtV-Xo-5OH" kind="unwind" identifier="unwindSegue" unwindAction="unwindToSelectCityControllerWithSegue:" id="QKF-nX-EhG"/>
@@ -83,7 +83,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAm-qP-SHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LtV-Xo-5OH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3676.811594202899" y="12.723214285714285"/>
+            <point key="canvasLocation" x="2335" y="734"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="uBr-0N-9qR">
@@ -131,7 +131,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fC6-6z-grs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="I1S-ou-40t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="13"/>
+            <point key="canvasLocation" x="3116" y="734"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -311,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203" y="27"/>
+            <point key="canvasLocation" x="-9" y="19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qa6-SE-KBk">
@@ -347,7 +347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8b-P3-Efl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750.7246376811595" y="12.723214285714285"/>
+            <point key="canvasLocation" x="2638" y="19"/>
         </scene>
     </scenes>
     <resources>

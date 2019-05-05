@@ -105,7 +105,6 @@
 				028626EE216AA6130033422C /* Main.storyboard */,
 				0243C45F21F4F8D200BCEFB8 /* ForecastCell.swift */,
 				027B9580227F7B9A005130E8 /* CustomSearchBar.swift */,
-				027B9582227F7BD6005130E8 /* CustomSearchController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +116,7 @@
 				024380942278F119008AAC66 /* SelectCityTableViewController.swift */,
 				02A7FC5C227B3D1C00D20D67 /* AddCityViewController.swift */,
 				02500377227F58B700D4268F /* LocationSearchTableViewController.swift */,
+				027B9582227F7BD6005130E8 /* CustomSearchController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
