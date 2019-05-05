@@ -12,8 +12,11 @@ import Foundation
 struct PropertyKeys {
   let forecastCellIdentifier = "ForecastCell"
   let cityCellIdentifier = "cityCell"
+  let selectCitySegue = "selectCitySegue"
   let unwindToWeatherViewController = "unwindSegue"
   let saveUnwindSegue = "saveUnwind"
+  let locationSearchControllerID = "LocationSearchController"
+  let locationSearchCell = "LocationSearchCell"
   
   fileprivate init() { }
 }

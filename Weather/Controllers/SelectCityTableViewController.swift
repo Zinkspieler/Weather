@@ -11,7 +11,7 @@ import UIKit
 /// Delegate for the `SelectCityTableViewController`
 ///
 /// Can be told which `City` to get the weather for, or to use the current location
-protocol SelectCityDelegate {
+protocol SelectCityDelegate: class {
   
   func didSelect(city: City)
   func useCurrentLocation()
@@ -22,7 +22,7 @@ protocol SelectCityDelegate {
 class SelectCityTableViewController: UITableViewController {
 
   var cities: [City] = []
-  var delegate: SelectCityDelegate?
+  weak var delegate: SelectCityDelegate?
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .default
@@ -37,6 +37,12 @@ class SelectCityTableViewController: UITableViewController {
     
     loadCities()
 
+    let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+    view.addGestureRecognizer(swipe)
+  }
+  
+  @objc func swiped() {
+    performSegue(withIdentifier: propertyKeys.unwindToWeatherViewController, sender: self)
   }
 
   // MARK: - Table view data source
@@ -90,16 +96,19 @@ class SelectCityTableViewController: UITableViewController {
     return indexPath
   }
   
+  // unwind to root view controller when cell is selected
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: propertyKeys.unwindToWeatherViewController, sender: self)
   }
   
+  // first section is just current location, so shouldn't be editable
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return indexPath.section == 1 ? true : false
   }
   
+  // swipe to delete cells
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    // swipe to delete cells
+    
     guard editingStyle == .delete else { return }
     // update model, update view, save
     cities.remove(at: indexPath.row)

@@ -77,9 +77,11 @@
                     <navigationItem key="navigationItem" id="pIX-xh-AYR"/>
                     <connections>
                         <outlet property="mapView" destination="qLF-ki-jZz" id="87w-AN-a4x"/>
+                        <segue destination="LtV-Xo-5OH" kind="unwind" identifier="unwindSegue" unwindAction="unwindToSelectCityControllerWithSegue:" id="QKF-nX-EhG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAm-qP-SHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LtV-Xo-5OH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3676.811594202899" y="12.723214285714285"/>
         </scene>
@@ -237,7 +239,7 @@
                                         <rect key="frame" x="358" y="56" width="22" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="f6d-sZ-4ff" kind="show" id="Cbc-kg-BFM"/>
+                                            <segue destination="f6d-sZ-4ff" kind="presentation" identifier="selectCitySegue" modalTransitionStyle="flipHorizontal" id="Cbc-kg-BFM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -309,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="226" y="23"/>
+            <point key="canvasLocation" x="203" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qa6-SE-KBk">
@@ -327,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7b-8I-DEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="13"/>
+            <point key="canvasLocation" x="1084" y="19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8D8-Ym-Jgz">

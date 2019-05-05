@@ -14,14 +14,14 @@ class AddCityViewController: UIViewController {
   
   @IBOutlet weak var mapView: MKMapView!
   
-  var resultSearchController: UISearchController?
-  var city: City?
+  var resultSearchController: CustomSearchController?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    guard let locationSearchController = storyboard?.instantiateViewController(withIdentifier: "LocationSearchController") as? LocationSearchTableViewController else { return }
-    resultSearchController = UISearchController(searchResultsController: locationSearchController)
+    // set up location search controller
+    guard let locationSearchController = storyboard?.instantiateViewController(withIdentifier: propertyKeys.locationSearchControllerID) as? LocationSearchTableViewController else { return }
+    resultSearchController = CustomSearchController(searchResultsController: locationSearchController)
     resultSearchController?.searchResultsUpdater = locationSearchController
     locationSearchController.mapView = mapView
     
@@ -29,17 +29,18 @@ class AddCityViewController: UIViewController {
     searchBar?.sizeToFit()
     searchBar?.placeholder = "Search for places"
     navigationItem.titleView = searchBar
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
     
     resultSearchController?.hidesNavigationBarDuringPresentation = false
     resultSearchController?.dimsBackgroundDuringPresentation = true
     definesPresentationContext = true
+    
   }
-
-  // MARK: - Navigation
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    guard segue.identifier == propertyKeys.saveUnwindSegue else { return }
-   
+  @objc func cancelPressed() {
+    performSegue(withIdentifier: propertyKeys.unwindToWeatherViewController, sender: self)
   }
 
 }
+
+

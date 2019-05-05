@@ -21,22 +21,25 @@ class LocationSearchTableViewController: UITableViewController {
 
 extension LocationSearchTableViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
-    
+
     guard let mapView = mapView, let searchBarText = searchController.searchBar.text else { return }
-    
-    print(searchBarText)
+  
+    // create new request from search bar text
     let request = MKLocalSearch.Request()
     request.naturalLanguageQuery = searchBarText
     request.region = mapView.region
     let search = MKLocalSearch(request: request)
+    
     search.start { (response, _) in
       guard let response = response else { return }
       self.matchingItems = response.mapItems
       self.tableView.reloadData()
     }
   }
-
+  
+  
 }
+
 
 // MARK: - Table View Data Source
 
@@ -46,13 +49,19 @@ extension LocationSearchTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSearchCell") else { return UITableViewCell() }
+    
+    let cell = tableView.dequeueReusableCell(withIdentifier: propertyKeys.locationSearchCell, for: indexPath)
+    
     let selectedItem = matchingItems[indexPath.row].placemark
     cell.textLabel?.text = selectedItem.title
-    let lat = String(format: "%.2f", selectedItem.coordinate.latitude)
-    let lon = String(format: "%.2f", selectedItem.coordinate.longitude)
-    cell.detailTextLabel?.text = "lat: \(lat): lon: \(lon)"
+    // set detail label to display lat lon coordinates
+    let lat = selectedItem.coordinate.latitude
+    let latString = String(format: "%.2f", abs(lat)) + "° " + (lat > 0 ? "N" : "S")
+    let lon = selectedItem.coordinate.longitude
+    let lonString = String(format: "%.2f", abs(lon)) + "° " + (lon > 0 ? "E" : "W")
+    cell.detailTextLabel?.text = "Latitude: \(latString): Longitude: \(lonString)"
     return cell
+    
   }
 }
 
@@ -61,6 +70,7 @@ extension LocationSearchTableViewController {
 extension LocationSearchTableViewController {
   
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    // create new City object in preparation for unwind segue
     let selectedItem = matchingItems[indexPath.row]
     guard let name = selectedItem.placemark.title else {
       return indexPath
