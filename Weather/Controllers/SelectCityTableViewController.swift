@@ -111,7 +111,7 @@ class SelectCityTableViewController: UITableViewController {
 
   @IBAction func unwindToSelectCityController(segue: UIStoryboardSegue) {
     // check if there is a new city to add
-    guard segue.identifier == propertyKeys.saveUnwindSegue, let controller = segue.source as? AddCityTableViewController,
+    guard segue.identifier == propertyKeys.saveUnwindSegue, let controller = segue.source as? LocationSearchTableViewController,
       let newCity = controller.city else { return }
     // update model, update view, save
     cities.append(newCity)
