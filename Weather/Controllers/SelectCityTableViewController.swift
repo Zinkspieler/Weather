@@ -11,7 +11,7 @@ import UIKit
 /// Delegate for the `SelectCityTableViewController`
 ///
 /// Can be told which `City` to get the weather for, or to use the current location
-protocol SelectCityDelegate {
+protocol SelectCityDelegate: class {
   
   func didSelect(city: City)
   func useCurrentLocation()
@@ -22,7 +22,7 @@ protocol SelectCityDelegate {
 class SelectCityTableViewController: UITableViewController {
 
   var cities: [City] = []
-  var delegate: SelectCityDelegate?
+  weak var delegate: SelectCityDelegate?
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .default
