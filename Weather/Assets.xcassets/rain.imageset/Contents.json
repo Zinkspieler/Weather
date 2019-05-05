@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "rain.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconfinder_weather-31_1530364.png",
+      "filename" : "rain@2x.png",
       "scale" : "2x"
     },
     {
@@ -17,5 +18,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

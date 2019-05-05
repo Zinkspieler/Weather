@@ -313,7 +313,8 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
       default: return "sunny"
       }
     }()
-    return UIImage(named: imageName)
+    let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+    return image
   }
   
 }
