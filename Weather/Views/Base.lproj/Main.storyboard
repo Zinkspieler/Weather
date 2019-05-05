@@ -235,9 +235,12 @@
                                         <color key="textColor" red="0.89885800100000002" green="0.9597512466" blue="1" alpha="0.74595997431506844" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewA-5B-X5M">
-                                        <rect key="frame" x="358" y="56" width="22" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewA-5B-X5M">
+                                        <rect key="frame" x="350" y="56" width="30" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="menu">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="f6d-sZ-4ff" kind="presentation" identifier="selectCitySegue" modalTransitionStyle="flipHorizontal" id="Cbc-kg-BFM"/>
                                         </connections>
@@ -311,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9" y="19"/>
+            <point key="canvasLocation" x="-10.144927536231885" y="18.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qa6-SE-KBk">
@@ -352,6 +355,7 @@
     </scenes>
     <resources>
         <image name="cloudy" width="256" height="256"/>
+        <image name="menu" width="30" height="30"/>
         <image name="sunnyBackground" width="2122" height="1415"/>
     </resources>
 </document>
