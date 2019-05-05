@@ -41,6 +41,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let swipe = UISwipeGestureRecognizer(target: self, action: #selector(swiped))
+    swipe.direction = .left
+    view.addGestureRecognizer(swipe)
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +60,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 
   @IBAction func temperatureButtonPressed(_ sender: Any) {
     viewDidAppear(true)
+  }
+  
+  @objc func swiped() {
+    performSegue(withIdentifier: propertyKeys.selectCitySegue, sender: self)
   }
   
   func updateUI() {
@@ -259,6 +267,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 // MARK: - TableView delegate and data source
 
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 44
+  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let forecasts = forecasts {

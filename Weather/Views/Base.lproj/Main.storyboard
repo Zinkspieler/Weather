@@ -57,32 +57,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gVJ-3B-W10">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qLF-ki-jZz">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLF-ki-jZz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <connections>
+                                    <outlet property="delegate" destination="T2G-bE-DTJ" id="TdH-jY-UcG"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gVJ-3B-W10" firstAttribute="top" secondItem="nsU-wX-alY" secondAttribute="top" id="6oh-X8-nL1"/>
-                            <constraint firstItem="qLF-ki-jZz" firstAttribute="leading" secondItem="nsU-wX-alY" secondAttribute="leading" id="Gn4-2J-JqS"/>
-                            <constraint firstItem="gVJ-3B-W10" firstAttribute="leading" secondItem="nsU-wX-alY" secondAttribute="leading" id="Hsn-4E-FlB"/>
-                            <constraint firstItem="qLF-ki-jZz" firstAttribute="top" secondItem="gVJ-3B-W10" secondAttribute="bottom" id="Z0A-Q7-RCe"/>
-                            <constraint firstItem="qLF-ki-jZz" firstAttribute="trailing" secondItem="nsU-wX-alY" secondAttribute="trailing" id="eUz-Z6-dda"/>
-                            <constraint firstItem="gVJ-3B-W10" firstAttribute="trailing" secondItem="nsU-wX-alY" secondAttribute="trailing" id="hPs-4v-a2t"/>
-                            <constraint firstItem="qLF-ki-jZz" firstAttribute="bottom" secondItem="nsU-wX-alY" secondAttribute="bottom" id="xKg-Bd-Sfe"/>
+                            <constraint firstItem="qLF-ki-jZz" firstAttribute="leading" secondItem="ukY-A6-qUP" secondAttribute="leading" id="1P6-ug-3B7"/>
+                            <constraint firstItem="qLF-ki-jZz" firstAttribute="top" secondItem="nsU-wX-alY" secondAttribute="top" id="CdK-xn-0gc"/>
+                            <constraint firstAttribute="trailing" secondItem="qLF-ki-jZz" secondAttribute="trailing" id="ls0-k4-qoe"/>
+                            <constraint firstAttribute="bottom" secondItem="qLF-ki-jZz" secondAttribute="bottom" id="rnf-VA-uD5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nsU-wX-alY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="FD9-j0-w6S"/>
                     <navigationItem key="navigationItem" id="pIX-xh-AYR"/>
+                    <connections>
+                        <outlet property="mapView" destination="qLF-ki-jZz" id="87w-AN-a4x"/>
+                        <segue destination="LtV-Xo-5OH" kind="unwind" identifier="unwindSegue" unwindAction="unwindToSelectCityControllerWithSegue:" id="QKF-nX-EhG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAm-qP-SHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LtV-Xo-5OH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3677" y="13"/>
+            <point key="canvasLocation" x="3676.811594202899" y="12.723214285714285"/>
+        </scene>
+        <!--Location Search Table View Controller-->
+        <scene sceneID="uBr-0N-9qR">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchController" id="TXg-UC-zQ0" customClass="LocationSearchTableViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uQl-6S-jwa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationSearchCell" textLabel="cxJ-0H-tOw" detailTextLabel="b14-lc-Lj8" style="IBUITableViewCellStyleSubtitle" id="NcP-zG-few">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NcP-zG-few" id="ON5-0v-CeD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cxJ-0H-tOw">
+                                            <rect key="frame" x="20" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b14-lc-Lj8">
+                                            <rect key="frame" x="20" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="I1S-ou-40t" kind="unwind" identifier="saveUnwind" unwindAction="unwindToSelectCityControllerWithSegue:" id="I43-Gr-Pas"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TXg-UC-zQ0" id="hlY-cy-AtW"/>
+                            <outlet property="delegate" destination="TXg-UC-zQ0" id="DlB-Ro-nbA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fC6-6z-grs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="I1S-ou-40t" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4358" y="13"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -190,7 +239,7 @@
                                         <rect key="frame" x="358" y="56" width="22" height="22"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="f6d-sZ-4ff" kind="show" id="Cbc-kg-BFM"/>
+                                            <segue destination="f6d-sZ-4ff" kind="presentation" identifier="selectCitySegue" modalTransitionStyle="flipHorizontal" id="Cbc-kg-BFM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -262,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="226" y="23"/>
+            <point key="canvasLocation" x="203" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qa6-SE-KBk">
@@ -280,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7b-8I-DEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="13"/>
+            <point key="canvasLocation" x="1084" y="19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8D8-Ym-Jgz">
