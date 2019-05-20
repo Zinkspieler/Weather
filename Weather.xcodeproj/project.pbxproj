@@ -23,6 +23,9 @@
 		028626F5216AA6140033422C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028626F3216AA6140033422C /* LaunchScreen.storyboard */; };
 		02A7FC5D227B3D1C00D20D67 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7FC5C227B3D1C00D20D67 /* AddCityViewController.swift */; };
 		02A7FC5F227B43B500D20D67 /* PropertyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A7FC5E227B43B500D20D67 /* PropertyKeys.swift */; };
+		02A91EDA22936098006C4F86 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A91ED722936097006C4F86 /* 2.png */; };
+		02A91EDB22936098006C4F86 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A91ED822936098006C4F86 /* 1.png */; };
+		02A91EDC22936098006C4F86 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A91ED922936098006C4F86 /* 3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		028626F6216AA6140033422C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02A7FC5C227B3D1C00D20D67 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		02A7FC5E227B43B500D20D67 /* PropertyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyKeys.swift; sourceTree = "<group>"; };
+		02A91ED722936097006C4F86 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		02A91ED822936098006C4F86 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		02A91ED922936098006C4F86 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +90,19 @@
 				028626F1216AA6140033422C /* Assets.xcassets */,
 				028626F3216AA6140033422C /* LaunchScreen.storyboard */,
 				028626F6216AA6140033422C /* Info.plist */,
+				02A91EDD229360A3006C4F86 /* Screenshots */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		02A91EDD229360A3006C4F86 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				02A91ED822936098006C4F86 /* 1.png */,
+				02A91ED722936097006C4F86 /* 2.png */,
+				02A91ED922936098006C4F86 /* 3.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		02C47669227C822100904DD0 /* Models */ = {
@@ -187,7 +204,10 @@
 			files = (
 				028626F5216AA6140033422C /* LaunchScreen.storyboard in Resources */,
 				028626F2216AA6140033422C /* Assets.xcassets in Resources */,
+				02A91EDA22936098006C4F86 /* 2.png in Resources */,
 				028626F0216AA6130033422C /* Main.storyboard in Resources */,
+				02A91EDB22936098006C4F86 /* 1.png in Resources */,
+				02A91EDC22936098006C4F86 /* 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
